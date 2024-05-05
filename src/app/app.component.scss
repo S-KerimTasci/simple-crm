@@ -1,3 +1,11 @@
+.mr16{
+    margin-right: 16px;
+}
+
+.pad-top-8{
+    padding-top: 8px !important;
+}
+
 .mat-drawer-container{
     height: 100vh;
 }
@@ -47,4 +55,9 @@ ul{
             margin-right: 16px;
         }
     }
+}
+
+.router-container{
+    padding-left: 56px;
+    padding-top: 16px;
 }
