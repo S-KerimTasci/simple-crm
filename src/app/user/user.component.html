@@ -1,9 +1,32 @@
-<p>user works!</p>
+<mat-card>
+  <!-- <mat-card-content>Simple card</mat-card-content> -->
+  <table class="user-table">
+    <tr>
+      <th>Name</th>
+      <th>Mail</th>
+      <th>City</th>
+    </tr>
+
+    <!-- @for (user of allUsers; track user) {
+    <tr>
+      <td>{{user.firstName}} {{user.lastName}}</td>
+      <td>peter.lustig&#64;.de</td>
+      <td>{{user.city}}</td>   
+    </tr>
+  } -->
 
 
+  <tr *ngFor="let user of allUsers | async" [routerLink]="user.id">
+    <td>{{user.firstName}} {{user.lastName}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.city}}</td>   
+  </tr>
 
-<button (click)="openDialog('0ms', '0ms')" class="add-user-btn" mat-fab color="primary" matTooltip="add user" matTooltipPosition="above">
-    <mat-icon>add</mat-icon>
-  </button>
+  </table>
+</mat-card>
 
-  
+
+<button (click)="openDialog('0ms', '0ms')" class="add-user-btn" mat-fab color="primary" matTooltip="add user"
+  matTooltipPosition="above">
+  <mat-icon>add</mat-icon>
+</button>

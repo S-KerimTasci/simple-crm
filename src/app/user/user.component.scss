@@ -3,3 +3,36 @@
     right: 56px;
     bottom: 56px;
 }
+
+.user-table{
+    border-collapse: collapse;
+    tr{
+        border-bottom: 1px solid grey;
+        cursor: pointer;
+        &:last-child{
+            border-bottom: 0;
+        }
+        &:first-child{
+            cursor: unset;
+            &:hover{
+                background-color: unset;
+            }
+        }
+        &:hover{
+            background-color: rgba(0,0,0,0.1);
+        }
+    }
+    td{
+        height: 48px;
+        &:first-child{
+            padding-left: 16px;
+        }
+    }
+    th{
+        color: gray;
+        text-align: start;
+        &:first-child{
+            padding-left: 16px;
+        }
+    }
+}
