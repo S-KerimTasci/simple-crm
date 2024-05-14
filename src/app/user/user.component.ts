@@ -10,7 +10,6 @@ import { FirebaseService } from '../services/firebase.service';
 import { collection, onSnapshot, doc } from '@angular/fire/firestore';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
-import { routes } from '../app.routes';
 import { RouterModule } from '@angular/router';
 
 

@@ -1,0 +1,37 @@
+.user-detail-header{
+    min-height: 250px;
+    background-color: rgba(255, 7, 99);
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;    
+}
+
+.user-detail-header-content{
+    display: flex;
+    align-items: center;
+
+    img{
+        height: 90px;
+        width: 90px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    h2{
+        margin-bottom: 0;
+    }
+}
+
+.user-detail-info{
+    margin-left: 16px;
+}
+
+.user-detail-content{
+    margin-top: 32px;
+}
+
+.right-corner{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
