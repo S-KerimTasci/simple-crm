@@ -6,12 +6,17 @@ import { collection, doc, onSnapshot } from '@angular/fire/firestore';
 import { User } from '../models/user.class';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+
 
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [MatCardModule,MatIconModule,MatButtonModule],
+  imports: [MatCardModule,MatIconModule,MatButtonModule,MatMenuModule, MatDialogModule],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
@@ -21,7 +26,7 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   user: User = new User();
   unsubscribe;
 
-  constructor(private route: ActivatedRoute, private firebase: FirebaseService,) {
+  constructor(private route: ActivatedRoute, private firebase: FirebaseService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -48,7 +53,23 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     )
   }
 
-  openAddressDialog(){
-    
+  openAddressDialog(enterAnimationDuration: string, exitAnimationDuration: string){
+      const dialog = this.dialog.open(DialogEditAddressComponent);
+      dialog.componentInstance.user = new User(this.user.toJSON());
+      dialog.componentInstance.userId = this.userId;
   }
-}
+
+  openUserDialog(enterAnimationDuration: string, exitAnimationDuration: string){
+      const dialog = this.dialog.open(DialogEditUserComponent, 
+        //{
+        // width: '250px',
+        // enterAnimationDuration,
+        // exitAnimationDuration,
+      //}
+    );
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
+    }
+
+  }
+
