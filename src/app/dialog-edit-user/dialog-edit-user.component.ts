@@ -19,7 +19,7 @@ import { doc, collection, updateDoc } from '@angular/fire/firestore';
 })
 export class DialogEditUserComponent {
 
-  user:User;
+  user:User = new User();
   userId ='';
   birthDate: Date;
 

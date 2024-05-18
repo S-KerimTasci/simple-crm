@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserDetailComponent } from './user-detail.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
+import { Firestore } from '@angular/fire/firestore';
+import { FirebaseService } from '../services/firebase.service';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
@@ -8,7 +12,8 @@ describe('UserDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserDetailComponent]
+      imports: [UserDetailComponent, MatDialogModule, RouterModule.forRoot([]) ],
+      providers: [{provide:Firestore, useValue: {}},],
     })
     .compileComponents();
     

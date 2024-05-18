@@ -20,7 +20,7 @@ export class DialogEditAddressComponent {
 
   loading: boolean = false;
 
-  user: User;
+  user: User = new User();
   userId = ''
 
   constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private firebase: FirebaseService) { }
